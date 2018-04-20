@@ -1,3 +1,6 @@
+From Jay Toran:
+https://www.dropbox.com/s/s6edrkqhhmdk8kv/Week%203%20FAQ.txt?dl=0
+
 # Week 3 FAQ
 
 **What is the difference between a tuple and a list?**
