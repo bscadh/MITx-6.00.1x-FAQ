@@ -13,12 +13,12 @@ The notation is different.  A tuple is specified as a comma-deliminated list of 
 
 A list is specified with a "list" of values surrounded by square brackets.  For example `l = [1, 'one']`.  If you have only one element you do *not* want a comma after it (i.e. `l = ['one']`.
 
-<br>
 **Can you use slicing with a tuple or a list?**
 
 Yes.  You code it the same way you would slice a string.  For example if you had `t = (1, 'one')` then `t[1:2]` would give you a tuple equal to ('one' ,).  Slicing a list would give you another list.
 
 <br>
+
 **Does indexing a tuple return the an element of type tuple?**
 
 No.  If you have `t = (2,  "one", 3)` then `t[0]` will return 2.  If you want a tuple you need to code a slice (i.e. `t[ : 1]`).  Per the reply to [this question](https://courses.edx.org/courses/course-v1:MITx+6.00.1x+2T2017_2/discussion/forum/35e127f944e149742273bc1b58766b721cd95c85/threads/5a6d725b24451a09d9000216) it works the same way with lists and strings.
