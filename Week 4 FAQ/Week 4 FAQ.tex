@@ -12,7 +12,12 @@
 
 \newcommand{\inlinecode}[1]{\mintinline{python}{#1}}
 \newcommand{\link}[2]{\textcolor{blue}{\href{#2}{#1}}}
-\newcommand{\question}[1]{\item[$\bullet$ #1] \hfil}
+\newcommand{\question}[1]{\item[$\bullet$] 
+	\begin{minipage}[t]{\textwidth}
+		\bfseries#1
+	\end{minipage}
+	\hfil
+}
 
 \newenvironment{answer}{}{}
 \newenvironment{faq}{\begin{description}}{\end{description}}
@@ -37,26 +42,21 @@
 	
 	\begin{faq}
 		\question{How to find answers to the midterm after submission\,?}
-		
 		\begin{answer}
 			In the short course everything had a deadline and we shared afterwards. Now it's self paced and last one year so we guess we'll put answers up then.
 		\end{answer}
 		
 		\question{I cannot access the Mid Term Exam.}
-		
 		\begin{answer}
 			Try different approaches to navigate to it. Also a different browser like Firefox. Persist.
 		\end{answer}
 		
-		\question{What the following error message mean\,?} \ \\
-		\textcolor[HTML]{900090}{Error 503 ``Unable to deliver your submission to grader (Reason: failed to read from the server)"}
-		
+		\question{What does \textcolor[HTML]{900090}{Error 503 ``Unable to deliver your submission to grader (Reason: failed to read from the server)"} mean\,?}
 		\begin{answer}
 			Wait a few hours before you try again. Maybe a fex submission instead.
 		\end{answer}
 		
 		\question{How to name a backup version of a file\,?}
-		
 		\begin{answer}
 			Pick what works. One method is to add a z. It pushes things to the back of the directory list (2 backups = zz)
 			
@@ -64,7 +64,6 @@
 		\end{answer}
 		
 		\question{Why do we use those exceptions if we can do all using simple \inlinecode{if} statements\,?}
-		
 		\begin{answer}
 			It is a language design choice.
 			
@@ -74,13 +73,11 @@
 		\end{answer}
 		
 		\question{What is the importance of closing file\,?}
-		
 		\begin{answer}
 			If you don't close a file, its data will stay in memory and that might be bad for performance.
 		\end{answer}
 		
 		\question{What is the purpose of \inlinecode{'r'} in \inlinecode{open(filename, 'r')}\,?}
-		
 		\begin{answer}
 			You may refer to this relevant part of the \link{python documentation}{https://docs.python.org/3/tutorial/inputoutput.html\#reading-and-writing-files}.
 		\end{answer}
@@ -94,13 +91,11 @@
 		\end{answer}
 		
 		\question{What does ``\inlinecode{Exception as ex:}" does\,?}
-		
 		\begin{answer}
 			An exception is an object like any other (so the thing \inlinecode{ex} is a name bound to an instance of that class) and the name of that instance is what is being passed.
 		\end{answer}
 		
 		\question{Why my marks are not getting updated\,?}
-		
 		\begin{answer}
 			If they were all ticked then it should update although, rarely, it can take an hour or so. Check the detail in progress to see if they are ticked there too.
 		\end{answer}

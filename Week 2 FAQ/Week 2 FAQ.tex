@@ -12,9 +12,14 @@
 
 \newcommand{\inlinecode}[1]{\mintinline{python}{#1}}
 \newcommand{\link}[2]{\textcolor{blue}{\href{#2}{#1}}}
-\newcommand{\question}[1]{\item[$\bullet$ #1] \hfil}
+\newcommand{\question}[1]{\item[$\bullet$] 
+	\begin{minipage}[t]{\textwidth}
+		\bfseries#1
+	\end{minipage}
+	\hfil
+}
 
-\newenvironment{answer}{\newline}{}
+\newenvironment{answer}{}{}
 \newenvironment{faq}{\begin{description}}{\end{description}}
 
 \definecolor{bg}{rgb}{0.95,0.95,0.95}
@@ -33,19 +38,19 @@
 
 \begin{document}
 	
-	\section*{\Huge6.00.1x Week 3 FAQ}
+	\section*{\Huge6.00.1x Week 2 FAQ}
 	
 	\begin{faq}
 		\question{When using a ``guess and check'' algorithm, how big or small does the epsilon and step have to be to make the program efficient as well as accurate enough\,?}
 		\begin{answer}
-			The smaller is epsilon, the more accurate the approximation.  
+			The smaller is epsilon, the more accurate the approximation.
 			
 			There isn't exactly an ``optimal'' value for step.  The rule is that the smaller the step, the more accurate the answer. But the smaller the step, the longer it will take to run.  So the optimal is a balance between these two facts.  So it's basically a question of how long can you wait for the answer.
 		\end{answer}
 		
-		\question{In the Approximate Solutions video at 3:49 the result is $2.999700000001906$.  Why is that\,?  This also comes up in Exercise 2 where the answer isn't $5$.}
+		\question{In the Approximate Solutions video at 3:49 the result is 2.999700000001906.  Why is that\,?  This also comes up in Exercise 2 where the answer isn't 5.}
 		\begin{answer}
-			By checking when the solution is within $.01$ of the cube trying each guess to the nearest $.0001$, the answer should be $2.9997$ rather than $3$.  Also kiwi has provided a link to the Python docs that have \link{a nice tutorial on floating point numbers}{https://docs.python.org/3/tutorial/floatingpoint.html} as to why it isn't exactly $2.9997$.
+			By checking when the solution is within .01 of the cube trying each guess to the nearest .0001, the answer should be 2.9997 rather than 3.  Also kiwi has provided a link to the Python docs that have \link{a nice tutorial on floating point numbers}{https://docs.python.org/3/tutorial/floatingpoint.html} as to why it isn't exactly 2.9997.
 		\end{answer}
 		
 		\question{How does the guess my number exercise work\,?}
@@ -57,7 +62,7 @@
 		
 		\question{What is the purpose of parentheses after a function name\,?}
 		\begin{answer}
-			The parentheses tells Python to execute the function.  If you have the code \inlinecode{print(function\_name)} then it will only print the memory address where the function is stored at.  If you have \inlinecode{`print( function\_name() )} with the parentheses then the function will execute and whatever is returned from the function is printed out.
+			The parentheses tells Python to execute the function. If you have the code \inlinecode{print(function_name)} then it will only print the memory address where the function is stored at. If you have \inlinecode{print( function_name() )} with the parentheses then the function will execute and whatever is returned from the function is printed out.
 		\end{answer}
 		
 		\question{What does ``scope'' mean\,?}
@@ -69,7 +74,7 @@
 		\begin{answer}
 			If a variable is defined outside of any function then it is in the global scope.  Variables defined inside a function are in that function's local scope.  
 			
-			There are two ways a function can change something that is in the global scope.  One is to put \inlinecode{global} in front of the variable name, and then define \inlinecode{global variable\_name} inside the function where you want to change that variable.  (The other way to change something is if the variable is ``mutable'', for example if the variable is a list or a dictionary.  Lists and dictionaries are covered in the Week 3 Lectures.)
+			There are two ways a function can change something that is in the global scope.  One is to put \inlinecode{global} in front of the variable name, and then define \inlinecode{global variable_name} inside the function where you want to change that variable.  (The other way to change something is if the variable is ``mutable'', for example if the variable is a list or a dictionary.  Lists and dictionaries are covered in the Week 3 Lectures.)
 		\end{answer}
 		
 		\question{What causes an UnboundLocalError,?}
@@ -94,7 +99,7 @@
 		
 		\question{How do you import a module, and what is the purpose of doing it\,?}
 		\begin{answer}
-			There are two ways to import a module:  The code to use is \inlinecode{import module\_name} or \inlinecode{from module\_name import *}.  (If you only want a selected function to be imported you would code \inlinecode{from module_name import function_name}.)  A module contains a set of functions that are commonly used together.  Usually it's written and tested by someone else.  Because modules are used by many people, it is proven to be correct and very efficient code. 
+			There are two ways to import a module:  The code to use is \inlinecode{import module_name} or \inlinecode{from module_name import *}.  (If you only want a selected function to be imported you would code \inlinecode{from module_name import function_name}). A module contains a set of functions that are commonly used together.  Usually it's written and tested by someone else.  Because modules are used by many people, it is proven to be correct and very efficient code. 
 		\end{answer}
 		
 		\question{I've been struggling with PSET 2 for hours, and just can't seem to get it.  What should I do\,?}

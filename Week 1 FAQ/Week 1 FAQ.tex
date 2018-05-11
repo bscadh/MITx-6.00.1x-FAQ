@@ -2,9 +2,8 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[english]{babel}
-\usepackage{xcolor,upquote,charter}
+\usepackage{xcolor,upquote,charter,graphicx}
 \usepackage[hidelinks]{hyperref}
-\usepackage{graphicx}
 \usepackage[top=3cm, bottom=4cm, left=3cm, right=3.5cm]{geometry}
 \usepackage{caption}
 
@@ -13,7 +12,12 @@
 
 \newcommand{\inlinecode}[1]{\mintinline{python}{#1}}
 \newcommand{\link}[2]{\textcolor{blue}{\href{#2}{#1}}}
-\newcommand{\question}[1]{\item[$\bullet$ #1] \hfil}
+\newcommand{\question}[1]{\item[$\bullet$] 
+	\begin{minipage}[t]{\textwidth}
+		\bfseries#1
+	\end{minipage}
+	\hfil
+}
 
 \newenvironment{answer}{}{}
 \newenvironment{faq}{\begin{description}}{\end{description}}
@@ -50,7 +54,6 @@
 	
 	\begin{faq}
 		\question{Can I try the course before upgrading to a Verified Certificate\,?}
-		
 		\begin{answer}
 			Of course! You are welcome to try the course and all its materials before
 			upgrading to a verified certificate but if you wish to receive a certificate you
@@ -58,7 +61,6 @@
 		\end{answer}
 		
 		\question{Are finger exercises graded\,?}
-		
 		\begin{answer}
 			Yes, completing finger exercises counts towards your final grade but you
 			have unlimited attempts to complete them. Finger exercises are here to help
@@ -66,7 +68,6 @@
 		\end{answer}
 		
 		\question{How many attempts am I allowed for finger exercises\,?}
-		
 		\begin{answer}
 			As many as you need. Finger exercises are here to help you solidify your
 			knowledge, detect areas where you need to work on and learn the topics
@@ -74,7 +75,6 @@
 		\end{answer}
 		
 		\question{Can I spend more time than the estimated time on an exercise\,?}
-		
 		\begin{answer}
 			Absolutely! It’s okay to spend more than the estimated time on a finger
 			exercise, just make sure that you understand the topic and what the exercise
@@ -85,19 +85,15 @@
 		\end{answer}
 		
 		\question{Are there deadlines I need to meet to complete lectures and exercises\,?}
-		
 		\begin{answer}
 			No, in this self-paced version of the course there are no deadlines for lectures
 			and exercises but you must complete all assignments before the course
 			ends. You can check this date on the ``Home'' tab.
 		\end{answer}
 		
-		\question{How to submit code to the grader where it is said the following sentences or alike\,?}
-		
-		\textcolor[HTML]{900090}{Assume that variables are already declared} or \textcolor[HTML]{900090}{Do not ask for user input}.
-		
+		\question{How to submit code to the grader for exercises that ask me to \textcolor[HTML]{900090}{assume that variables are already declared} or \textcolor[HTML]{900090}{to not ask for user input}\,?}
 		\begin{answer}
-			Don't include the variable declaration when you paste your code to the
+			Don't include the variable declaration (or the line which gets the user input) when you paste your code to the
 			grader, remove that line from your code as in the example \textcolor{blue}{\ref{Code you run on your IDE to test your solution}} and \textcolor{blue}{\ref{Code submitted to the grader}}:
 			
 			\begin{table}[htb]
@@ -125,7 +121,6 @@
 		\end{answer}
 		
 		\question{How can I keep indentation consistent when I paste my code to the grader\,?}
-		
 		\begin{answer}
 			It usually helps to use tabs instead of spaces to create indentation.
 			If you are using Sublime Text as your Text Editor, highlight your code to check if you see
@@ -134,7 +129,7 @@
 			\begin{figure}[htb]
 				\centering
 				\caption{Indentation using spaces in Sublime Text} \label{Indentation using spaces in Sublime Text}
-				\includegraphics{dots_indentation}
+				\includegraphics[scale=.5]{dots_indentation}
 			\end{figure}
 			
 			If you do, this means that you are using spaces instead of tabs for
@@ -145,7 +140,7 @@
 			\begin{figure}[htb]
 				\centering
 				\caption{The \emph{spaces} option} \label{The spaces option}
-				\includegraphics[scale=.5]{spaces_option}
+				\includegraphics[scale=.25]{spaces_option}
 			\end{figure}
 			
 			Then click on ``Convert Indentation to Tabs'' (see~\figurename\,\textcolor{blue}{\ref{Convert Indentation to Tabs}})
@@ -162,7 +157,7 @@
 			\begin{figure}[htb]
 				\centering
 				\caption{Indentation using tabs in Sublime Text} \label{Indentation using tabs in Sublime Text}
-				\includegraphics{spaces_indentation}
+				\includegraphics[scale=.5]{spaces_indentation}
 			\end{figure}
 		\end{answer}
 	\end{faq}
@@ -174,7 +169,6 @@
 	\begin{faq}
 		
 		\question{What is Static Semantic vs. Semantic\,?}
-		
 		\begin{answer}
 			Static semantics checks which syntactically correct expressions have
 			meaning (e.g $3 \times 5$ is syntactically correct and multiplying two numbers has
@@ -183,7 +177,6 @@
 		\end{answer}
 		
 		\question{Why is \inlinecode{True} different from true and \inlinecode{False} different from false in Python\,?}
-		
 		\begin{answer}
 			Python is case sensitive; therefore the correct way to write Booleans is \inlinecode{True}
 			and \inlinecode{False}. Using true and false will return an error because they are not
@@ -191,19 +184,16 @@
 		\end{answer}
 		
 		\question{What is Bool\,?}
-		
 		\begin{answer}
 			Bool is a way to refer to Booleans, the truth values \inlinecode{True} and \inlinecode{False}.
 		\end{answer}
 		
 		\question{Difference between $/$ and $//$ in Python}
-		
 		\begin{answer}
 			The $/$ operator returns a \inlinecode{float}, while $//$ returns an \inlinecode{int}.
 		\end{answer}
 		
 		\question{What does \inlinecode{!=} mean\,?}
-		
 		\begin{answer}
 			This is a comparison operator that means ``not equal''. It returns \inlinecode{True} if the
 			values compared are NOT equal and returns \inlinecode{False} if the values compared
@@ -211,20 +201,17 @@
 		\end{answer}
 		
 		\question{What is the syntax for advanced string slicing\,?}
-		
 		\begin{answer}
 			\inlinecode{"string"[start: end: step]}
 		\end{answer}
 		
 		\question{Does \inlinecode{input()} always return a string\,?}
-		
 		\begin{answer}
 			Yes. The Built-in function \inlinecode{input()} casts (``converts'') the input into a string and
 			returns it. You can find more information on this function at \link{this link}{https://docs.python.org/3/library/functions.html\#input}.
 		\end{answer}
 		
 		\question{What does the error ``\inlinecode{'str' object is not callable}'' mean\,?}
-		
 		\begin{answer}
 			This error occurs when you name one of your variables \inlinecode{str}. If you use this
 			name, you will ``replace'' the built-in function \inlinecode{str()} and you will not be able to
@@ -232,29 +219,16 @@
 		\end{answer}
 		
 		\question{Difference between \inlinecode{if} and \inlinecode{elif}}
-		
 		\begin{answer}
-			\inlinecode{if} is the first condition checked in an if/elif/else statement. If it is \inlinecode{True} the ``if''
-			code block will be executed. Else, if it is \inlinecode{False} the subsequent ``elif'' conditions
-			will be checked. The code block of the first \inlinecode{elif} condition that evaluates to
-			\inlinecode{True} will be executed. If none of them evaluates to \inlinecode{True}, the \inlinecode{else} code block
-			will be automatically executed.
+			\inlinecode{if} is the first condition checked in an if/elif/else statement. If it is \inlinecode{True} the ``if'' code block will be executed. Else, if it is \inlinecode{False} the subsequent ``elif'' conditions will be checked. The code block of the first \inlinecode{elif} condition that evaluates to \inlinecode{True} will be executed. If none of them evaluates to \inlinecode{True}, the \inlinecode{else} code block will be automatically executed.
 		\end{answer}
 		
 		\question{What is \# and what is it used for\,?}
-		
 		\begin{answer}
-			In Python, \# is used to comment out a line of code or to add a comment to
-			your code. These lines will not be executed as code, they are simply a way to
-			help you explain your thought process to yourself and to other developers.
-			For comments you do not need to follow the syntax of the programming
-			language, you can write them as if you were talking to yourself or explaining what
-			your code does. It is a very helpful way to communicate with developers that will look
-			at your code in the future to try to understand how it works.
+			In Python, \# is used to comment out a line of code or to add a comment to your code. These lines will not be executed as code, they are simply a way to help you explain your thought process to yourself and to other developers. For comments you do not need to follow the syntax of the programming language, you can write them as if you were talking to yourself or explaining what your code does. It is a very helpful way to communicate with developers that will look at your code in the future to try to understand how it works.
 		\end{answer}
 		
 		\question{What is the difference between an Error and an Infinite Loop\,?}
-		
 		\begin{answer}
 			An error is a warning thrown by your IDE or Shell, it is descriptive and gives
 			you some information on what caused it. An infinite loop occurs when a while
@@ -265,13 +239,11 @@
 		\end{answer}
 		
 		\question{How do I stop an infinite loop\,?}
-		
 		\begin{answer}
 			By pressing \texttt{CTRL + C} on Windows.
 		\end{answer}
 		
 		\question{Difference between While and For loop}
-		
 		\begin{answer}
 			A While loop is used for situations where we want to keep executing a code
 			block while a condition is not met, meaning that we don't know ahead of time
@@ -281,7 +253,6 @@
 		\end{answer}
 		
 		\question{What is \inlinecode{str}\,?}
-		
 		\begin{answer}
 			\inlinecode{str} is the built-in string class. You will learn about classes in the next few
 			weeks of the course but right now you need to know that you can check if a
@@ -289,7 +260,6 @@
 		\end{answer}
 		
 		\question{Difference between \inlinecode{for i in} and \inlinecode{for i in range}\,?}
-		
 		\begin{answer}
 			\inlinecode{for i in} is used to iterate over all the elements of a sequence (characters in a
 			string, and elements of other data structures that you will learn in the next
@@ -299,7 +269,6 @@
 		\end{answer}
 		
 		\question{How does \inlinecode{while True} work?}
-		
 		\begin{answer}
 			\inlinecode{while True} will execute a While loop indefinitely until it reaches a break
 			statement to stop its execution. This is useful when you need to perform the

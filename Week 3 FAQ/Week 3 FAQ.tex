@@ -12,9 +12,14 @@
 
 \newcommand{\inlinecode}[1]{\mintinline{python}{#1}}
 \newcommand{\link}[2]{\textcolor{blue}{\href{#2}{#1}}}
-\newcommand{\question}[1]{\item[$\bullet$ #1] \hfil}
+\newcommand{\question}[1]{\item[$\bullet$] 
+	\begin{minipage}[t]{\textwidth}
+		\bfseries#1
+	\end{minipage}
+	\hfil
+}
 
-\newenvironment{answer}{\newline}{}
+\newenvironment{answer}{}{}
 \newenvironment{faq}{\begin{description}}{\end{description}}
 
 \definecolor{bg}{rgb}{0.95,0.95,0.95}
@@ -58,7 +63,7 @@
 			Yes. For example you can have \inlinecode{t = (1, 2, ('one', 'two'))}. To access the 'two' you would need index [2] of \inlinecode{t}, then within that you would need index 1 of the inside tuple. In other words \inlinecode{t[2][1] == 'two'} is True.
 		\end{answer}
 		
-		\question{What is the difference between list.append and list.extend\,?}
+		\question{What is the difference between \inlinecode{list.append} and \inlinecode{list.extend}\,?}
 		\begin{answer}
 			List.\textit{append} takes whatever the item is and adds it to the end of the list. The item can be an int, a string, another list or a tuple or anything. For example if \inlinecode{l = [1, 2]} then \inlinecode{l.append([3, 4])} will give you \inlinecode{l = [1, 2, [3, 4]]}. With list.\textit{extend} the item needs to be a kind of ``iterable" like a string, tuple or another list. Each element of the list is individually added to the end of the first list. For example if \inlinecode{l = [1, 2]} then \inlinecode{l.extend([ (3,), 4 ])} will give you \inlinecode{l = [1, 2, (3,), 4]}.
 		\end{answer}
@@ -73,7 +78,7 @@
 			The list functions don't return anything. They merely change the value of the list being operated on.
 		\end{answer}
 		
-		\question{What is the difference between list.sort and sorted(list)\,?}
+		\question{What is the difference between \inlinecode{list.sort} and \inlinecode{sorted(list)}\,?}
 		\begin{answer}
 			Using \inlinecode{list.sort} changes the value of the variable \inlinecode{list}. The function \inlinecode{sorted(list)} returns a new variable that is sorted. The code would be \inlinecode{listA = sorted(listB)}. \newpage
 			
@@ -150,7 +155,7 @@
 			Yes. You would use the method \inlinecode{dictionary_name.keys()} or \inlinecode{dictionary_name.values()}. It doesn't exactly return a list, but something very much like one.
 		\end{answer}
 		
-		\question{What does ``Incorrect: Something went wrong: tests don't match up." mean\,?}
+		\question{What does ``\textcolor[HTML]{900090}{Incorrect: Something went wrong: tests don't match up}" mean\,?}
 		\begin{answer}
 			Occasionally a problem comes up with the grader. Just press the Submit button again until you don't get that message.
 		\end{answer}
