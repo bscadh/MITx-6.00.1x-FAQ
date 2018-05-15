@@ -1,0 +1,96 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+\usepackage{xcolor,upquote,charter}
+\usepackage[hidelinks]{hyperref}
+\usepackage[top=3cm, bottom=4cm, left=3cm, right=3.5cm]{geometry}
+\usepackage{caption}
+
+\usepackage{minted}
+% \usemintedstyle{monokai}
+
+\newcommand{\inlinecode}[1]{\mintinline{python}{#1}}
+\newcommand{\link}[2]{\textcolor{blue}{\href{#2}{#1}}}
+\newcommand{\question}[1]{\item[$\bullet$] 
+	\begin{minipage}[t]{\textwidth}
+		\bfseries#1
+	\end{minipage}
+	\hfil
+}
+
+\newenvironment{answer}{}{}
+\newenvironment{faq}{\begin{description}}{\end{description}}
+
+\definecolor{bg}{rgb}{0.95,0.95,0.95}
+
+\setminted[python]
+{
+	mathescape,
+	python3=true,
+	tabsize=4,
+	bgcolor=bg
+}
+
+\pagestyle{empty}
+
+% \captionsetup[table]{name=Listing}
+
+
+\begin{document}
+	
+	\section*{\Huge6.00.1x Week 6 FAQ}
+	
+	\begin{faq}
+		\question{Mistake in lecture/subtitle\,?}
+		\begin{answer}
+			We value improvements. For mispronounced words or typographical errors, please check the errata against the concerned lecture prior to post.
+		\end{answer}
+		
+		\question{How does the computer know if \inlinecode{L} is an empty list while counting the number of steps\,?}
+		\begin{answer}
+			We need to realize that counting the number of steps can be somewhat arbitrary. In any event, the professor is pretty consistent in not counting a \inlinecode{for} going through an empty list (as long as \emph{there is no assigment}).
+			
+			Apparently checking the list to see if it has zero element has been optimized. That means that certain operations are running at the speed of a compiled C language program, rather than being implemented using the slower Python interpreter.
+		\end{answer}
+		
+		\question{How do we know there's $2^k$ possible cases for $k$ elements in \inlinecode{L}\,?}
+		\begin{answer}
+			For a subset of $n-1$, the last element will be used to create a new subset with each $n-1$ subsets, thus doubling the number of subsets. Therefore, for each element in the set, the number of subsets doubles, so the number of possible subsets is $2^k$.
+			
+			Here's an example for various sized lists as input.
+			
+			\begin{table}[htb]
+				\centering \caption{Number of possible cases for $k$ elements in \texttt{L}}
+				\begin{tabular}{llc}
+					List        & Subsets                                                             & Number of sample(s)\\
+					\hline
+					{[}]        & []                                                                  & 1\\
+					{[}1]       & [], \textcolor{purple}{[1]}                                         & 2\\
+					{[}1, 2]    & [], [1], \textcolor{purple}{[2], [1,2]}                             & 4\\
+					{[}1, 2, 3] & [], [1], [2], [1,2], \textcolor{purple}{[3], [1,3], [2,3], [1,2,3]} & 8
+				\end{tabular}
+			\end{table}
+		\end{answer}
+		
+		\question{How does the function \link{\inlinecode{recurPowerNew}}{https://courses.edx.org/courses/course-v1:MITx+6.00.1x+2T2017_2/jump_to/block-v1:MITx+6.00.1x+2T2017_2+type@vertical+block@4685adb29e1044629e190a16f292c0bf} work\,?}
+		\begin{answer}
+			What this code does is raise \inlinecode{a} to the power of \inlinecode{b}. If we call it with $a = \mathsf{any\ number}$ and $b = 0$, then it returns 1 since anything raised to 0 is 1.
+			
+			Next if we call it with $a = \mathsf{any\ number}$ and $b = \textsf{an\ even\ number}$, then it recursively calls itself with the new $a = a \times a$ and $b = b \div 2$.
+			
+			To understand this consider \inlinecode{a = 5} and \inlinecode{b = 4}. Then this function calls itself again with \inlinecode{a = 25} and \inlinecode{b = 2} and then again with \inlinecode{a = 625} and \inlinecode{b = 1}. This makes sense because we can write $5^4$ as $(5^2)^2$. This is also the reason that the answer was $\mathcal{O}(\log(b))$ since \inlinecode{b} gets halved every recursion.
+			
+			And then in the third case if \inlinecode{a} = any number and \inlinecode{b} = odd number, then it returns \(a \times {} \)another recursion of this function with \inlinecode{a} being same and \inlinecode{b = b-1} so that \inlinecode{b} is now even. This is same as writing $a^5$ as $a \times (a^4)$.
+		\end{answer}
+		
+		\question{Why \link{the two recursive bisection search}{https://courses.edx.org/courses/course-v1:MITx+6.00.1x+2T2017_2/jump_to/block-v1:MITx+6.00.1x+2T2017_2+type@vertical+block@d5dba301968c438b94287873177097da} algorithms have different time complexity\,?}
+		\begin{answer}
+			The \inlinecode{bisect_search1} algorithm makes a copy of the list which increases the space that is being used but also takes additional time (recall that the complexity of the copy is $\mathcal{O}(\inlinecode{len(L)})$.
+			
+			In \inlinecode{bisect_search2}, the inner function \inlinecode{bisect_search_helper} only needs the beginning and ending index that needs to be searched. The entire list \inlinecode{L} is passed each time it is called. Then the only portion searched is from the beginning index through the ending index. So the complexity is $\mathcal{O}(\log n)$ and no extra time is used up making any copies.
+		\end{answer}
+	\end{faq}
+	
+\end{document}
+}
