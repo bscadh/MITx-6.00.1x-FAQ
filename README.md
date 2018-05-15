@@ -1,5 +1,7 @@
 # MITx-6.00.1x-FAQ and Troubleshooting
 
+> Thanks to all CTAs and students who provided answers that were used. <br/> -*Kiwitrader*
+
 ### List of Contributors
 | Week   | TA        |
 | :----- | :-------- |
