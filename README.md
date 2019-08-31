@@ -5,7 +5,7 @@ An original idea of Estefania.
 > Thanks to all CTAs and students who provided answers that were used. <br/> -*Kiwitrader*
 
 ### List of Contributors
-| Week   | TA        |
+| Week   | CTA       |
 | :----- | :-------- |
 | Week 1 | Estefania |
 | Week 2 | Jay       |
