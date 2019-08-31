@@ -1,5 +1,7 @@
 # MITx-6.00.1x-FAQ and Troubleshooting
 
+An original idea of Estefania.
+
 > Thanks to all CTAs and students who provided answers that were used. <br/> -*Kiwitrader*
 
 ### List of Contributors
